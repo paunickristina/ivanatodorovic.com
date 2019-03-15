@@ -34,6 +34,9 @@ export default {
 	@include font-size(16, 16);
 	letter-spacing: 0.05em;
 	border-bottom: 2px solid rgba(219, 219, 219, 0.7);
+	@include breakpoint(overPhone){
+		padding: 7.6rem 0 8.6rem;
+	}
 	&::before {
 		content: '';
 		display: block;
@@ -43,6 +46,9 @@ export default {
 		width: 7.2rem;
 		height: 1.6rem;
 		background-image: linear-gradient(to right, $color-white, rgba(255, 255, 255, 0));
+		@include breakpoint(overPhone){
+			display: none;
+		}
 	}
 	&::after {
 		content: '';
@@ -53,6 +59,9 @@ export default {
 		width: 7.2rem;
 		height: 1.6rem;
 		background-image: linear-gradient(to left, $color-white, rgba(255, 255, 255, 0));
+		@include breakpoint(overPhone){
+			display: none;
+		}
 	}
 	&:last-of-type {
 		border: 0;
@@ -66,7 +75,8 @@ export default {
 	& h2 {
 		@include font-size(30, 30);
 		letter-spacing: 0.05em;
-		line-height: 1.13;
+		// line-height: 1.13;
+		@include line-height(34, 35);
 		padding-right: 1rem;
 		margin-bottom: 4.2rem;
 	}
@@ -81,6 +91,9 @@ export default {
 	&__bottom {
 		display: flex;
 		justify-content: space-between;
+		@include breakpoint(overPhone){
+			padding-right: 27%;
+		}
 	}
 }
 </style>

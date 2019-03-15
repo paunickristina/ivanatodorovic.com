@@ -1,6 +1,6 @@
 <template>
   <section class="b-news l">
-		<div v-for="(item, index) in items" :key="index">
+		<div class="b-news__item" v-for="(item, index) in items" :key="index">
 			<Item :data="item" />
 		</div>
 	</section>
@@ -45,6 +45,53 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+@import '~assets/scss/base/_base.scss';
+.b-news {
+	@include breakpoint(overPhone){
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&::after {
+		@include breakpoint(overPhone){
+			content: '';
+			display: block;
+			width: 0.2rem;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			// background: red;
+			background-image: url("~static/border-fade.png");
+			background-position: center;
+			background-repeat:no-repeat;
+			background-size: 100%; //check
+		}
+	}
+	&__item {
+		@include breakpoint(overPhone){
+			width: 41%;
+		}
+		&:nth-child(1){
+			position: relative;
+			&::after {
+				@include breakpoint(overPhone){
+					content: '';
+					display: block;
+					width: 114rem;
+					height: 0.2rem;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					background-image: url("~static/border-fade.png");
+					background-position: center;
+					background-repeat:no-repeat;
+    			background-size: 100%; //check
+				}
+			}
+		}
+	}
+}
 </style>
