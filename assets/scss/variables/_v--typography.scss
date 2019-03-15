@@ -19,7 +19,7 @@ body {
     // overflow-x: hidden;
     &.fixed {
       @include breakpoint(phone) {
-        overflow: hidden;
+        overflow-y: hidden;
       }
     }
 }

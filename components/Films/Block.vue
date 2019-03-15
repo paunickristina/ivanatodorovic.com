@@ -15,6 +15,6 @@ export default {
 <style scoped lang="scss">
 @import '~assets/scss/base/_base.scss';
 .b-films {
-	background: lightcoral;
+	// background: lightcoral;
 }
 </style>
