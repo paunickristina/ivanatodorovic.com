@@ -1,0 +1,29 @@
+//------FONT FAMILY VARIBALE
+$fontDefault         : Arial, sans-serif;
+
+$ff-regular          : $fontDefault;
+
+//----- Font size
+$font-size-base         : 10;
+
+//------GLOBAL FONT SETTINGS
+html {
+  @include font-size-vw($font-size-base, $font-size-base);
+  overflow-x: hidden;
+}
+body {
+    font-family: $ff-regular;
+    // -webkit-font-smoothing: antialiased;
+    line-height: normal;
+    letter-spacing: -0.11rem;
+    // overflow-x: hidden;
+    &.fixed {
+      @include breakpoint(phone) {
+        overflow: hidden;
+      }
+    }
+}
+
+a {
+  text-decoration: none;
+}

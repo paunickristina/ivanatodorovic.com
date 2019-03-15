@@ -1,6 +1,6 @@
-# nuxt-project
+# DIWANEE - IVANA TODOROVIC Website
 
-> My Nuxt.js project
+> Ivana Todorovic
 
 ## Build Setup
 

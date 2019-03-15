@@ -1,0 +1,14 @@
+.c-link {
+	display: flex;
+	color: $color-black;
+	& span {
+		display: inline-block;
+		width: 2.2rem;
+		height: 1.8rem;
+		margin-left: 1.3rem;
+	}
+	& svg {
+		width: 100%;
+		height: 100%;
+	}
+}

@@ -1,0 +1,17 @@
+// ----- Wrappers
+
+#main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.l {
+    width: 100%;
+    padding: 0 2rem;
+    @include breakpoint(overPhone) {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 15rem;
+    }
+}
