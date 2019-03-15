@@ -1,5 +1,5 @@
 <template>
-	<div class="c-news">
+	<article class="c-news">
 		<div class="c-news__wrapper">
 			<p class="c-news__desc">{{ data.description }}</p>
 			<h2>{{ data.title }}</h2>
@@ -17,7 +17,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</article>
 </template>
 
 <script>

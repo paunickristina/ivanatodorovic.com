@@ -1,6 +1,7 @@
 .c-link {
 	display: flex;
 	color: $color-black;
+	@include font-size(16, 16);
 	letter-spacing: 0.05em;
 	& span {
 		display: inline-block;

@@ -4,7 +4,10 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 9.7rem 0 0;
+    @include breakpoint(overPhone) {
+        padding: 0;
+    }
 }
 .l {
     width: 100%;
