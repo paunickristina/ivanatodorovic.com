@@ -2,7 +2,7 @@
   <header class="b-header l">
 		<div class="b-header__wrapper">
 			<div class="b-header__top">
-				<div class="b-header__logo">
+				<nuxt-link class="b-header__logo" to="/">
 					<svg viewBox="0 0 200 32.218">
 						<path d="M0 5.126h4.209v26.785H0V5.126z" data-name="Path 1"/>
 						<path d="M13.621 26.975l3.214-21.849h3.869l-4.137 26.785h-6.275L6.159 5.126h4.245z" data-name="Path 2"/>
@@ -20,7 +20,7 @@
 						<path d="M199.999 21.924v3.559c0 4.286-2.143 6.735-6.276 6.735s-6.276-2.449-6.276-6.735V11.554c0-4.286 2.143-6.735 6.276-6.735s6.276 2.449 6.276 6.735v2.6h-3.98v-2.868c0-1.914-.841-2.64-2.181-2.64s-2.182.727-2.182 2.64v14.465c0 1.913.842 2.6 2.182 2.6s2.181-.689 2.181-2.6v-3.827z" data-name="Path 14"/>
 						<path d="M198.369 0l-3.82 4.157h-2.771L194.324 0z" data-name="Path 35"/>
 					</svg>
-				</div>
+				</nuxt-link>
 				<div class="b-header__trigger" @click="(menuOpened = !menuOpened),bodyOverflow()">
 					<div class="b-header__trigger-icon" :class="{'active': !menuOpened}">
 						<svg viewBox="0 0 23.95 15.967">

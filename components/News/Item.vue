@@ -1,12 +1,11 @@
 <template>
 	<article class="c-news">
-		<div class="c-news__wrapper">
+		<nuxt-link class="c-news__wrapper" tag="div" :to="{ name: 'news-id', params: { id: data.id }}">
 			<p class="c-news__desc">{{ data.description }}</p>
 			<h2>{{ data.title }}</h2>
 			<div class="c-news__bottom">
 				<p class="c-news__date">{{ data.date}} — {{ data.year }}</p>
-				<!-- <nuxt-link>more</nuxt-link> -->
-				<a class="c-news__link c-link" href="">
+				<div class="c-news__link c-link">
 					more
 					<span>
 						<svg viewBox="0 0 21.933 17.521">
@@ -14,9 +13,9 @@
 							<path d="M13.171 17.517a.336.336 0 0 1-.238-.573l8.188-8.188L12.937.573a.336.336 0 0 1 .475-.475l8.425 8.419a.337.337 0 0 1 0 .476l-8.429 8.424a.333.333 0 0 1-.237.1z" data-name="Path 48"/>
 						</svg>
 					</span>
-				</a>
+				</div>
 			</div>
-		</div>
+		</nuxt-link>
 	</article>
 </template>
 
@@ -36,6 +35,17 @@ export default {
 	border-bottom: 2px solid rgba(219, 219, 219, 0.7);
 	@include breakpoint(overPhone){
 		padding: 7.6rem 0 8.6rem;
+	}
+	&__wrapper {
+		@include breakpoint(overPhone){
+			cursor: pointer;
+		}
+		&:hover .c-link span {
+			@include breakpoint(overPhone){
+				-webkit-transform: translateX(1rem);
+				transform: translateX(1rem);
+			}
+		}
 	}
 	&::before {
 		content: '';

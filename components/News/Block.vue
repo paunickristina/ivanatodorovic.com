@@ -16,24 +16,28 @@ export default {
 		return {
 			items: [
 				{
+					id: "1",
 					description: "News",
 					title: "First short fiction film",
 					date: "January 12",
 					year: "2018"
 				},
 				{
+					id: "2",
 					description: "Festival",
 					title: "Selection committee for German International Ethnographic film festival",
 					date: "March 03",
 					year: "2018"
 				},
 				{
+					id: "3",
 					description: "Master Class",
 					title: "Master Class at the Serbian film center",
 					date: "March 15",
 					year: "2018"
 				},
 				{
+					id: "4",
 					description: "Workshops",
 					title: "Two 7 day workshopin kulturwissenschaft an der uni Koblenc — Germany",
 					date: "March 15",

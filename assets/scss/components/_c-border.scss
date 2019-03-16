@@ -1,0 +1,23 @@
+.c-border {
+	border-bottom: 0.2rem solid rgba(219, 219, 219, 0.7);
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: -0.8rem;
+		left: 0;
+		width: 7.2rem;
+		height: 1.6rem;
+		background-image: linear-gradient(to right, $color-white, rgba(255, 255, 255, 0));
+	}
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: -0.8rem;
+		right: 0;
+		width: 7.2rem;
+		height: 1.6rem;
+		background-image: linear-gradient(to left, $color-white, rgba(255, 255, 255, 0));
+	}
+}

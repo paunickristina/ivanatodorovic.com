@@ -1,8 +1,8 @@
 <template>
-	<article class="b-art-news l">
-		<div class="b-art-news__wrapper">
-			<div class="b-art-news__body">
-				<h2>First short fiction film</h2>
+	<article class="b-art-news">
+		<div class="b-art-news__wrapper c-border">
+			<div class="b-art-news__body c-border">
+				<h2>{{ data.title }}</h2>
 				<div class="b-art-news__img">
 					<img src="~assets/img/news/news-1.jpg" alt="">
 				</div>
@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="b-art-news__text">
-				<p>With a great crew, we shot a film about a girl brave enough to face her uncle who sexualy abused her when she was a child.</p>
+				<p>{{ data.description }}</p>
 			</div>
 		</div>
 	</article>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-
+	props: ["data"]
 }
 </script>
 
@@ -38,10 +38,14 @@ export default {
 	&__wrapper {
 		position: relative;
 		padding-bottom: 9.4rem;
+		margin-bottom: 5.3rem;
 		@include breakpoint(overPhone){
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			padding-bottom: 0;
+			border-bottom: 0;
+			margin-bottom: 5.5rem;
 		}
 	}
 	& h2 {
@@ -52,7 +56,32 @@ export default {
 	}
 	&__body {
 		@include breakpoint(overPhone){
+			position: relative;
 			width: 36%;
+			padding-bottom: 5.5rem;
+			cursor: pointer;
+		}
+		&.c-border {
+			@include breakpoint(phone){
+				border: 0;
+				&::before, ::after {
+					display: none;
+				}
+			}
+		}
+		&:hover .c-link span {
+			@include breakpoint(overPhone){
+				-webkit-transform: translateX(1rem);
+				transform: translateX(1rem);
+			}
+		}
+		&:hover + .b-art-news__text {
+			@include breakpoint(overPhone){
+				opacity: 1;
+				visibility: visible;
+				-webkit-transform: translateX(2rem);
+  			transform: translateX(2rem);
+			}	
 		}
 	}
 	&__img {
@@ -65,10 +94,10 @@ export default {
 		}
 	}
 	&__bottom {
-		position: absolute;
-		bottom: 5.4rem;
-		left: 0;
 		@include font-size(16, 16);
+		position: absolute;
+		bottom: 5.5rem;
+		left: 0;
 		letter-spacing: 0.05em;
 		display: flex;
 		justify-content: space-between;
@@ -91,6 +120,11 @@ export default {
 		@include breakpoint(overPhone){
 			width: 49.6%;
 			padding-right: 14%;
+			margin-left: -2rem;
+			opacity: 0;
+			visibility: hidden;
+			-webkit-transition: 0.5s all ease;
+  		transition: 0.5s all ease;
 		}
 	}
 }

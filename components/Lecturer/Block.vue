@@ -3,7 +3,7 @@
 		<nuxt-link to="/lecturer" tag="div" class="b-lecturer__wrapper">
 			<p class="b-lecturer__desc">Lecturer</p>
 			<h2>Master Classes / practical hands-on workshops</h2>
-			<a class="b-lecturer__link c-link" href="">
+			<div class="b-lecturer__link c-link">
 				more
 				<span>
 					<svg viewBox="0 0 21.933 17.521">
@@ -11,7 +11,7 @@
 						<path d="M13.171 17.517a.336.336 0 0 1-.238-.573l8.188-8.188L12.937.573a.336.336 0 0 1 .475-.475l8.425 8.419a.337.337 0 0 1 0 .476l-8.429 8.424a.333.333 0 0 1-.237.1z" data-name="Path 48"/>
 					</svg>
 				</span>
-			</a>
+			</div>
 		</nuxt-link>
 	</section>
 </template>
