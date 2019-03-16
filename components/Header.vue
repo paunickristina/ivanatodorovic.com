@@ -86,7 +86,7 @@ export default {
 				justify-content: space-between;
 				align-items: flex-end;
 				padding: 5.2rem 0 0;
-				margin-bottom: 17rem;
+				// margin-bottom: 17rem; //check!
 			}
 		}
 		&__top {

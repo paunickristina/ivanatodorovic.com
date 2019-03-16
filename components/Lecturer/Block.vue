@@ -1,6 +1,6 @@
 <template>
 	<section class="b-lecturer l">
-		<div class="b-lecturer__wrapper">
+		<nuxt-link to="/lecturer" tag="div" class="b-lecturer__wrapper">
 			<p class="b-lecturer__desc">Lecturer</p>
 			<h2>Master Classes / practical hands-on workshops</h2>
 			<a class="b-lecturer__link c-link" href="">
@@ -12,7 +12,7 @@
 					</svg>
 				</span>
 			</a>
-		</div>
+		</nuxt-link>
 	</section>
 </template>
 
@@ -32,6 +32,7 @@ export default {
 		@include breakpoint(overPhone){
 			width: 40%;
 			padding-bottom: 7.5rem;
+			cursor: pointer;
 		}
 	}
 	& h2 {
@@ -52,5 +53,4 @@ export default {
 		}
 	}
 }
-
 </style>
