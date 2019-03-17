@@ -41,12 +41,12 @@
 			<div class="b-header__menu" :class="{'active': menuOpened}">
 				<nav class="b-header__menu-nav">
 					<ul>
-						<li class="active">Home</li>
-						<li>Films</li>
-						<li>Lecturer</li>
-						<li>Bio</li>
-						<li>News</li>
-						<li>Contact</li>
+						<nuxt-link tag="li" to="/" :class="{'active': home}">Home</nuxt-link>
+						<nuxt-link tag="li" to="/films" :class="{'active': films}">Films</nuxt-link>
+						<nuxt-link tag="li" to="/lecturer" :class="{'active': lecturer}">Lecturer</nuxt-link>
+						<nuxt-link tag="li" to="/bio" :class="{'active': bio}">Bio</nuxt-link>
+						<nuxt-link tag="li" to="/news/1" :class="{'active': news}">News</nuxt-link>
+						<nuxt-link tag="li" to="/contact" :class="{'active': contact}">Contact</nuxt-link>
 					</ul>
 				</nav>
 				<h2>DOCUMENTARY FILMMAKER WITH PASSION FOR SOCIAL CHANGE.</h2>
@@ -62,6 +62,26 @@ export default {
 		return {
 			menuOpened: false
 		}
+	},
+	computed: {
+		home() {
+			return this.$route.path === '/'
+    },
+		films() {
+			return this.$route.path.startsWith('/films')
+    },
+		lecturer() {
+			return this.$route.path.startsWith('/lecturer')
+    },
+		bio() {
+			return this.$route.path.startsWith('/bio')
+    },
+		news() {
+      return this.$route.path.startsWith('/news')
+    },
+		contact() {
+     	return this.$route.path.startsWith('/contact')
+    }
 	},
 	methods: {
 		bodyOverflow(){
