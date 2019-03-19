@@ -4,8 +4,8 @@
 			<p class="b-bio__desc">Bio</p>
 			<h1>DOCUMENTARY FILMMAKER WITH PASSION FOR SOCIAL CHANGE.</h1>
 			<p class="b-bio__intro">Ivana Todorovic is a filmmaker and lecturer from Belgrade, Serbia. For her BA Thesis in Ethnology and Anthropology at University of Belgrade, she made her first short documentary film. After a one month course at Ateliers Varan in Belgrade, she went on to get a Graduate Certificate in Documentary Media studies in New York City. She later received an MA in Fiction Film at The Faculty of Dramatic Arts in Belgrade.</p>
-			<div class="b-bio__link">
-				<a class="c-link" href="">
+			<nuxt-link to="/bio" tag="div" class="b-bio__link">
+				<div class="c-link">
 					more
 					<span>
 						<svg viewBox="0 0 21.933 17.521">
@@ -13,8 +13,8 @@
 							<path d="M13.171 17.517a.336.336 0 0 1-.238-.573l8.188-8.188L12.937.573a.336.336 0 0 1 .475-.475l8.425 8.419a.337.337 0 0 1 0 .476l-8.429 8.424a.333.333 0 0 1-.237.1z" data-name="Path 48"/>
 						</svg>
 					</span>
-				</a>
-			</div>
+				</div>
+			</nuxt-link>
 		</div>
 	</section>
 </template>
@@ -33,8 +33,11 @@ export default {
 		position: relative;
 	}
 	&__wrapper {
+		padding-bottom: 18.2rem;
 		@include breakpoint(overPhone){
 			width: 70%;
+			padding-bottom: 0;
+			margin-bottom: 31.7rem;
 		}
 	}
 	& h1 {
@@ -74,6 +77,13 @@ export default {
 			position: absolute;
 			bottom: 0.5rem;
 			right: 27.6rem;
+			cursor: pointer;
+		}
+		&:hover .c-link span {
+			@include breakpoint(overPhone){
+				-webkit-transform: translateX(1rem);
+				transform: translateX(1rem);
+			}
 		}
 	}
 }

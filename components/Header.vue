@@ -106,7 +106,6 @@ export default {
 				justify-content: space-between;
 				align-items: flex-end;
 				padding: 5.2rem 0 0;
-				// margin-bottom: 17rem; //check!
 			}
 		}
 		&__top {
@@ -160,6 +159,7 @@ export default {
 			position: relative;
 			@include font-size(40, 40);
 			@include line-height(43, 43);
+			letter-spacing: 0.05em;
 			margin-bottom: 4.5rem;
 			@include breakpoint(overPhone){
 				display: none;
@@ -226,15 +226,16 @@ export default {
 						justify-content: space-between;
 					}
 					& li {
+						letter-spacing: 0em;
 						padding: 1rem 0;
 						@include breakpoint(overPhone){
 							padding: 0;
-							margin: 0 1.1rem;
+							margin: 0 1.25rem;
 							cursor: pointer;
 						}
 						&:last-child {
 							@include breakpoint(overPhone){
-								margin: 0;
+								margin-right: 0;
 							}
 						}
 						&.active {

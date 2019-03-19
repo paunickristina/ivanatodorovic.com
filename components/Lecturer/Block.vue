@@ -31,8 +31,15 @@ export default {
 		padding-bottom: 7.3rem;
 		@include breakpoint(overPhone){
 			width: 40%;
-			padding-bottom: 7.5rem;
+			padding-bottom: 0;
+			margin-bottom: 7.5rem;
 			cursor: pointer;
+		}
+		&:hover .c-link span {
+			@include breakpoint(overPhone){
+				-webkit-transform: translateX(1rem);
+				transform: translateX(1rem);
+			}
 		}
 	}
 	& h2 {

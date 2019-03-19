@@ -222,7 +222,6 @@ export default {
 				overflow: hidden;
 				@include breakpoint(overPhone){
 					height: 20.8rem;
-					background: red;
 				}
 				& img {
 					width: 100%;

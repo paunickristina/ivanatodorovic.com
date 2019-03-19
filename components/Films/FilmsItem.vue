@@ -1,14 +1,14 @@
 <template>
 	<article class="b-film">
 		<div class="b-film__wrapper c-border">
-			<div class="b-film__body c-border">
+			<nuxt-link tag="div" :to="{ name: 'films-id', params: { id: data.id }}" class="b-film__body c-border">
 				<h2>{{ data.title }}</h2>
 				<div class="b-film__img">
 					<img :src="data.imgSrc" alt="">
 				</div>
 				<div class="b-film__bottom">
 					<p class="b-film__date">{{ data.date }} — {{ data.year }}</p>
-					<a class="b-film__link c-link" href="">
+					<div class="b-film__link c-link">
 						more
 						<span>
 							<svg viewBox="0 0 21.933 17.521">
@@ -16,9 +16,9 @@
 								<path d="M13.171 17.517a.336.336 0 0 1-.238-.573l8.188-8.188L12.937.573a.336.336 0 0 1 .475-.475l8.425 8.419a.337.337 0 0 1 0 .476l-8.429 8.424a.333.333 0 0 1-.237.1z" data-name="Path 48"/>
 							</svg>
 						</span>
-					</a>
+					</div>
 				</div>
-			</div>
+			</nuxt-link>
 		</div>
 	</article>
 </template>

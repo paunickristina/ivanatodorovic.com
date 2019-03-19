@@ -1,7 +1,9 @@
 <template>
   <section class="b-news l">
-		<div class="b-news__item" v-for="(item, index) in items" :key="index">
-			<Item :data="item" />
+		<div class="b-news__wrapper">
+			<div class="b-news__item" v-for="(item, index) in items" :key="index">
+				<Item :data="item" />
+			</div>
 		</div>
 	</section>
 </template>
@@ -52,15 +54,52 @@ export default {
 <style scoped lang="scss">
 @import '~assets/scss/base/_base.scss';
 .b-news {
-	@include breakpoint(overPhone){
-		position: relative;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+	&__wrapper {
+		padding-bottom: 14rem;
+		@include breakpoint(overPhone){
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding-bottom: 17.6rem;
+		}
 	}
 	&__item {
+		@include breakpoint(phone){
+			position: relative;
+			border-bottom: 2px solid rgba(219, 219, 219, 0.7);
+		}
 		@include breakpoint(overPhone){
 			width: 50%;
+		}
+		&::before {
+			@include breakpoint(phone){
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: -0.8rem;
+				left: 0;
+				width: 7.2rem;
+				height: 1.6rem;
+				background-image: linear-gradient(to right, $color-white, rgba(255, 255, 255, 0));
+			}
+		}
+		&::after {
+			@include breakpoint(phone){
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: -0.8rem;
+				right: 0;
+				width: 7.2rem;
+				height: 1.6rem;
+				background-image: linear-gradient(to left, $color-white, rgba(255, 255, 255, 0));
+			}
+		}
+		&:nth-child(odd){
+			@include breakpoint(overPhone){
+				padding-right: 9%;
+			}
 		}
 		&:nth-child(even){
 			@include breakpoint(overPhone){
@@ -98,7 +137,10 @@ export default {
 				}
 			}
 		}
-		&:nth-child(4){
+		&:last-child{
+			@include breakpoint(phone){
+				border-bottom: 0;
+			}
 			@include breakpoint(overPhone){
 				position: relative;
 				transform: translate(-0.1rem, -0.1rem);
@@ -106,6 +148,7 @@ export default {
 				border-left: 0.1rem solid rgba(219, 219, 219, 0.7);
 			}
 			&::before {
+				display: none;
 				@include breakpoint(overPhone){
 					content: '';
 					display: block;
@@ -118,6 +161,7 @@ export default {
 				}
 			}
 			&::after {
+				display: none;
 				@include breakpoint(overPhone){
 					content: '';
 					display: block;

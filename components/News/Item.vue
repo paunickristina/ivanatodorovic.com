@@ -29,10 +29,9 @@ export default {
 @import '~assets/scss/base/_base.scss';
 .c-news {
 	position: relative;
-	padding: 4.9rem 0;
+	padding: 4.9rem 0 4.8rem;
 	@include font-size(16, 16);
 	letter-spacing: 0.05em;
-	border-bottom: 2px solid rgba(219, 219, 219, 0.7);
 	@include breakpoint(overPhone){
 		padding: 7.6rem 0 8.6rem;
 	}
@@ -47,45 +46,9 @@ export default {
 			}
 		}
 	}
-	&::before {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: -0.8rem;
-		left: 0;
-		width: 7.2rem;
-		height: 1.6rem;
-		background-image: linear-gradient(to right, $color-white, rgba(255, 255, 255, 0));
-		@include breakpoint(overPhone){
-			display: none;
-		}
-	}
-	&::after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: -0.8rem;
-		right: 0;
-		width: 7.2rem;
-		height: 1.6rem;
-		background-image: linear-gradient(to left, $color-white, rgba(255, 255, 255, 0));
-		@include breakpoint(overPhone){
-			display: none;
-		}
-	}
-	&:last-of-type {
-		border: 0;
-		&::before {
-			display: none;
-		}
-		&::before {
-			display: none;
-		}
-	}
 	& h2 {
 		@include font-size(30, 30);
 		letter-spacing: 0.05em;
-		// line-height: 1.13;
 		@include line-height(34, 35);
 		padding-right: 1rem;
 		margin-bottom: 4.2rem;
