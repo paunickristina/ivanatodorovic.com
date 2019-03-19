@@ -32,7 +32,7 @@ export default {
 		@include breakpoint(overPhone){
 			width: 40%;
 			padding-bottom: 0;
-			margin-bottom: 7.5rem;
+			margin-bottom: 7.9rem;
 			cursor: pointer;
 		}
 		&:hover .c-link span {
@@ -45,19 +45,19 @@ export default {
 	& h2 {
 		@include font-size(30, 30);
 		@include line-height(34, 34);
-		letter-spacing: 0.05em;
-		margin-bottom: 4.2rem;
+		letter-spacing: 0;
+		margin-bottom: 4rem;
 		@include breakpoint(overPhone){
-			margin-bottom: 5rem;
+			margin-bottom: 4.6rem;
 		}
 	}
 	&__desc {
+		@include font-size(22, 30);
+		color: $color-red;
+		letter-spacing: 0.05em;
 		font-style: italic;
 		text-transform: capitalize;
 		margin-bottom: 6.4rem;
-		@include breakpoint(overPhone){
-			
-		}
 	}
 }
 </style>

@@ -2,7 +2,7 @@
 	<section class="b-bio l">
 		<div class="b-bio__wrapper">
 			<p class="b-bio__desc">Bio</p>
-			<h1>DOCUMENTARY FILMMAKER WITH PASSION FOR SOCIAL CHANGE.</h1>
+			<h1>Documentary Filmmaker With Passion For Social Change.</h1>
 			<p class="b-bio__intro">Ivana Todorovic is a filmmaker and lecturer from Belgrade, Serbia. For her BA Thesis in Ethnology and Anthropology at University of Belgrade, she made her first short documentary film. After a one month course at Ateliers Varan in Belgrade, she went on to get a Graduate Certificate in Documentary Media studies in New York City. She later received an MA in Fiction Film at The Faculty of Dramatic Arts in Belgrade.</p>
 			<nuxt-link to="/bio" tag="div" class="b-bio__link">
 				<div class="c-link">
@@ -33,50 +33,48 @@ export default {
 		position: relative;
 	}
 	&__wrapper {
-		padding-bottom: 18.2rem;
+		padding-bottom: 20.1rem;
 		@include breakpoint(overPhone){
 			width: 70%;
 			padding-bottom: 0;
-			margin-bottom: 31.7rem;
+			margin-bottom: 32.5rem;
+		}
+	}
+	&__desc {
+		@include font-size(22, 30);
+		color: $color-red;
+		letter-spacing: 0.05em;
+		font-style: italic;
+		text-transform: capitalize;
+		margin-bottom: 6.8rem;
+		@include breakpoint(overPhone){
+			margin-bottom: 7.4rem;
 		}
 	}
 	& h1 {
 		font-weight: bold;
 		@include font-size(40, 100);
-		@include line-height(43, 107);
-		margin-bottom: 1.4rem;
-		letter-spacing: 0.05em;
-		@include breakpoint(overPhone){
-			letter-spacing: 0.045em;
-			margin: 0 0 1.7rem -0.4rem;
-		}
-	}
-	&__desc {
-		font-style: italic;
+		@include line-height(39, 96);
 		text-transform: capitalize;
-		margin-bottom: 6.4rem;
-		letter-spacing: 0.05em;
+		letter-spacing: 0;
+		margin-bottom: 1rem;
 		@include breakpoint(overPhone){
-			margin-bottom: 6.7rem;
+			margin: 0 0 2.5rem -0.4rem;
 		}
 	}
 	&__intro {
 		color: $color-gray;
-		margin-bottom: 3.5rem;
+		margin-bottom: 3.7rem;
 		letter-spacing: 0em;
 		@include line-height(24, 25);
 		@include breakpoint(overPhone){
 			padding-right: 17%;
+			margin-bottom: 4.7rem;
 		}
 	}
 	&__link {
-		text-align: left;
-    display: flex;
-		justify-content: flex-end;
 		@include breakpoint(overPhone){
-			position: absolute;
-			bottom: 0.5rem;
-			right: 27.6rem;
+			display: inline-block;
 			cursor: pointer;
 		}
 		&:hover .c-link span {

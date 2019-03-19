@@ -37,10 +37,11 @@ export default {
 		}
 	}
 	&__top {
-		margin-bottom: 6.7rem;
+		margin-bottom: 6.4rem;
 		display: inline-block;
 		@include breakpoint(overPhone){
 			margin-bottom: 0;
+			order: 1;
 			cursor: pointer;
 		}
 	}

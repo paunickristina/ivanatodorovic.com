@@ -1,7 +1,6 @@
 <template>
 	<article class="c-news">
 		<nuxt-link class="c-news__wrapper" tag="div" :to="{ name: 'news-id', params: { id: data.id }}">
-			<p class="c-news__desc">{{ data.description }}</p>
 			<h2>{{ data.title }}</h2>
 			<div class="c-news__bottom">
 				<p class="c-news__date">{{ data.date}} — {{ data.year }}</p>
@@ -33,7 +32,7 @@ export default {
 	@include font-size(16, 16);
 	letter-spacing: 0.05em;
 	@include breakpoint(overPhone){
-		padding: 7.6rem 0 8.6rem;
+		padding: 9.8rem 0 10rem;
 	}
 	&__wrapper {
 		@include breakpoint(overPhone){
@@ -48,10 +47,10 @@ export default {
 	}
 	& h2 {
 		@include font-size(30, 30);
-		letter-spacing: 0.05em;
+		letter-spacing: 0em;
 		@include line-height(34, 35);
 		padding-right: 1rem;
-		margin-bottom: 4.2rem;
+		margin-bottom: 4rem;
 	}
 	&__desc {
 		font-style: italic;

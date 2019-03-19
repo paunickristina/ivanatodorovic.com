@@ -125,10 +125,9 @@ export default {
 @import '~assets/scss/base/_base.scss';
 .b-films {
 	&__wrapper {
-		padding-bottom: 6.9rem;
-		padding: 11.5rem 0 6.9rem 0;
+		padding: 13rem 0 10.9rem 0;
 		@include breakpoint(overPhone){
-			padding: 17.2rem 0 17.7rem 0;
+			padding: 23rem 0 18.4rem 0;
 		}
 	}
 	&__films {
@@ -138,11 +137,12 @@ export default {
 		}
 	}
 	&__desc {
-		@include font-size(16, 16);
+		@include font-size(22, 30);
+		color: $color-red;
 		letter-spacing: 0.05em;
 		font-style: italic;
 		text-transform: capitalize;
-		margin-bottom: 5rem;
+		margin-bottom: 6.6rem;
 		@include breakpoint(overPhone){
 			margin-bottom: 6.4rem;
 		}
@@ -161,12 +161,13 @@ export default {
 			}
 		}
 		& h2 {
-			@include font-size(30, 30);
-			@include line-height(34, 35);
+			@include font-size(40, 100);
+			@include line-height(45, 115);
 			letter-spacing: 0.05em;
-			margin-bottom: 2.5rem;
+			margin-bottom: 0.2rem;
 			@include breakpoint(overPhone){
-				margin-bottom: 4rem;
+				letter-spacing: 0;
+				margin-bottom: 0rem;
 			}
 		}
 		& p {
@@ -182,7 +183,7 @@ export default {
 	&__thumbnails {
 		@include breakpoint(overPhone){
 			width: 29rem;
-			margin-top: 7.4rem;
+			margin-top: 11.4rem;
 		}
 	}
 	&__sec {

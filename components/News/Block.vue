@@ -1,5 +1,6 @@
 <template>
   <section class="b-news l">
+		<p class="b-news__desc">News</p>
 		<div class="b-news__wrapper">
 			<div class="b-news__item" v-for="(item, index) in items" :key="index">
 				<Item :data="item" />
@@ -55,13 +56,24 @@ export default {
 @import '~assets/scss/base/_base.scss';
 .b-news {
 	&__wrapper {
-		padding-bottom: 14rem;
+		padding-bottom: 13.2rem;
 		@include breakpoint(overPhone){
 			position: relative;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			padding-bottom: 17.6rem;
+			padding-bottom: 23.5rem;
+		}
+	}
+	&__desc {
+		@include font-size(22, 30);
+		color: $color-red;
+		letter-spacing: 0.05em;
+		font-style: italic;
+		text-transform: capitalize;
+		margin-bottom: 1.5rem;
+		@include breakpoint(overPhone){
+			margin-bottom: 0.7rem;
 		}
 	}
 	&__item {
