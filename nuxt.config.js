@@ -60,5 +60,15 @@ module.exports = {
         })
       }
     }
+  },
+  generate: {
+    routes: function(){
+      return [
+        '/news/1',
+        '/news/2',
+        '/news/3',
+        '/news/4'
+      ]
+    }
   }
 }
