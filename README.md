@@ -1,6 +1,6 @@
 # DIWANEE - IVANA TODOROVIC Website
 
-> Ivana Todorovic
+> Nuxt.js project
 
 ## Build Setup
 
