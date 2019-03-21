@@ -238,8 +238,9 @@ export default {
 						letter-spacing: 0em;
 						padding: 1rem 0;
 						@include breakpoint(overPhone){
+							letter-spacing: 0.05em;
 							padding: 0;
-							margin: 0 1.25rem;
+							margin: 0 1.06rem;
 							cursor: pointer;
 						}
 						&:last-child {

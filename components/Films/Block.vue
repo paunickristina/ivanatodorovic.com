@@ -2,9 +2,9 @@
 	<section class="b-films l">
 		<div class="b-films__wrapper">
 			<p class="b-films__desc">Upcoming Films</p>
+			<h2 class="b-films__title">{{ main.title }}</h2>
 			<div class="b-films__films">
 				<div class="b-films__main">
-					<h2 class="b-films__main-title">{{ main.title }}</h2>
 					<div class="b-films__main-img">
 						<picture>
 							<source media="(min-width: 768px)" :srcset="main.imgSrcDesk">
@@ -13,34 +13,32 @@
 					</div>
 					<p>{{ main.description }}</p>
 				</div>
-				<div class="b-films__thumbnails">
-					<div class="b-films__sec" @click="changeSecFilm">
-						<div class="b-films__sec-item">
-							<div class="b-films__sec-item-img">
-								<picture>
-									<source media="(min-width: 768px)" :srcset="sec.imgSrcDesk">
-									<img :src="sec.imgSrc" alt="">
-								</picture>
-							</div>
-							<div class="b-films__sec-item-title">
-								<h3>{{ sec.title }}</h3>
-							</div>
-							<p>{{ sec.description }}</p>
+				<div class="b-films__sec" @click="changeSecFilm">
+					<div class="b-films__sec-item">
+						<div class="b-films__sec-item-img">
+							<picture>
+								<source media="(min-width: 768px)" :srcset="sec.imgSrcDesk">
+								<img :src="sec.imgSrc" alt="">
+							</picture>
 						</div>
+						<div class="b-films__sec-item-title">
+							<h3>{{ sec.title }}</h3>
+						</div>
+						<p>{{ sec.description }}</p>
 					</div>
-					<div class="b-films__sec" @click="changeThirdFilm">
-						<div class="b-films__sec-item">
-							<div class="b-films__sec-item-img">
-								<picture>
-									<source media="(min-width: 768px)" :srcset="third.imgSrcDesk">
-									<img :src="third.imgSrc" alt="">
-								</picture>
-							</div>
-							<div class="b-films__sec-item-title">
-								<h3>{{ third.title }}</h3>
-							</div>
-							<p>{{ third.description }}</p>
+				</div>
+				<div class="b-films__sec third" @click="changeThirdFilm">
+					<div class="b-films__sec-item">
+						<div class="b-films__sec-item-img">
+							<picture>
+								<source media="(min-width: 768px)" :srcset="third.imgSrcDesk">
+								<img :src="third.imgSrc" alt="">
+							</picture>
 						</div>
+						<div class="b-films__sec-item-title">
+							<h3>{{ third.title }}</h3>
+						</div>
+						<p>{{ third.description }}</p>
 					</div>
 				</div>
 			</div>
@@ -127,13 +125,15 @@ export default {
 	&__wrapper {
 		padding: 13rem 0 10.9rem 0;
 		@include breakpoint(overPhone){
-			padding: 23rem 0 18.4rem 0;
+			padding: 23rem 0 27.2rem 0;
 		}
 	}
 	&__films {
 		@include breakpoint(overPhone){
-			display: flex;
-			justify-content: space-between;
+			display: grid;
+			grid-template-columns: 81rem 29rem;
+			grid-template-rows: 20.8rem 20.8rem;
+			grid-gap: 4rem;
 		}
 	}
 	&__desc {
@@ -147,20 +147,7 @@ export default {
 			margin-bottom: 6.4rem;
 		}
 	}
-	&__main {
-		margin-bottom: 3.1rem;
-		@include breakpoint(overPhone){
-			width: 81rem;
-		}
-		&-img {
-			margin-bottom: 1.1rem;
-			@include breakpoint(overPhone){
-				margin-bottom: 1.6rem;
-				height: 45.6rem;
-				overflow: hidden;
-			}
-		}
-		& h2 {
+	&__title {
 			@include font-size(40, 100);
 			@include line-height(45, 115);
 			letter-spacing: 0.05em;
@@ -168,6 +155,20 @@ export default {
 			@include breakpoint(overPhone){
 				letter-spacing: 0;
 				margin-bottom: 0rem;
+				width: 81rem;
+			}
+		}
+	&__main {
+		margin-bottom: 3.1rem;
+		&-img {
+			margin-bottom: 1.1rem;
+			@include breakpoint(overPhone){
+				margin-bottom: 1.6rem;
+				height: 45.6rem;
+				overflow: hidden;
+			}
+			& img {
+				width: 100%;
 			}
 		}
 		& p {
@@ -180,16 +181,16 @@ export default {
 			}
 		}
 	}
-	&__thumbnails {
-		@include breakpoint(overPhone){
-			width: 29rem;
-			margin-top: 11.4rem;
-		}
-	}
 	&__sec {
 		margin-bottom: 3rem;
 		@include breakpoint(overPhone){
 			margin-bottom: 3.9rem;
+		}
+		&.third {
+			@include breakpoint(overPhone){
+				grid-row-start: 2;
+				grid-column-start: 2;
+			}
 		}
 		&-item {
 			position: relative;
@@ -199,7 +200,7 @@ export default {
 			&-title {
 				position: absolute;
 				top: 10.4rem;
-				left: 0;
+				left: -0.1rem;
 				z-index: 1;
 				background: $color-white;
 				width: 25rem;
