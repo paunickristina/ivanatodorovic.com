@@ -22,7 +22,7 @@
 					</svg>
 				</nuxt-link>
 				<div class="b-header__trigger" @click="(menuOpened = !menuOpened),bodyOverflow()">
-					<div class="b-header__trigger-icon" :class="{'active': !menuOpened}">
+					<div class="b-header__trigger-icon b-header__trigger-icon--open" :class="{'active': !menuOpened}">
 						<svg viewBox="0 0 23.95 15.967">
 							<g id="menu" transform="translate(0 -76.5)">
 								<g id="menu-2" data-name="menu" transform="translate(0 76.5)">
@@ -31,7 +31,7 @@
 							</g>
 						</svg>
 					</div>
-					<div class="b-header__trigger-icon" :class="{'active': menuOpened}">
+					<div class="b-header__trigger-icon b-header__trigger-icon--close" :class="{'active': menuOpened}">
 						<svg viewBox="0 0 19.092 19.092">
 							<path id="close" d="M9.546,11.667,2.121,19.092,0,16.97,7.425,9.546,0,2.121,2.121,0,9.546,7.425,16.97,0l2.121,2.121L11.667,9.546l7.425,7.425L16.97,19.092Z"/>
 						</svg>
@@ -39,20 +39,30 @@
 				</div>
 			</div>
 			<div class="b-header__menu" :class="{'active': menuOpened}">
-				<nav class="b-header__menu-nav">
+				<nav class="b-header__menu-nav c-border">
 					<ul>
-						<nuxt-link tag="li" to="/" :class="{'active': home}">Home</nuxt-link>
-						<nuxt-link tag="li" to="/films" :class="{'active': films}">Films</nuxt-link>
-						<nuxt-link tag="li" to="/lecturer" :class="{'active': lecturer}">Lecturer</nuxt-link>
-						<nuxt-link tag="li" to="/bio" :class="{'active': bio}">Bio</nuxt-link>
-						<nuxt-link tag="li" to="/news/1" :class="{'active': news}">News</nuxt-link>
-						<nuxt-link tag="li" to="/contact" :class="{'active': contact}">Contact</nuxt-link>
+						<nuxt-link tag="li" to="/" :class="{'active': home}"><span>Home</span></nuxt-link>
+						<nuxt-link tag="li" to="/films" :class="{'active': films}"><span>Films</span></nuxt-link>
+						<nuxt-link tag="li" to="/lecturer" :class="{'active': lecturer}"><span>Lecturer</span></nuxt-link>
+						<nuxt-link tag="li" to="/bio" :class="{'active': bio}"><span>Bio</span></nuxt-link>
+						<nuxt-link tag="li" to="/news/1" :class="{'active': news}"><span>News</span></nuxt-link>
+						<nuxt-link tag="li" to="/contact" :class="{'active': contact}"><span>Contact</span></nuxt-link>
 					</ul>
 				</nav>
-				<h2>DOCUMENTARY FILMMAKER WITH PASSION FOR SOCIAL CHANGE.</h2>
+				<nuxt-link tag="div" to="/bio" class="b-header__menu-title">
+					<h2>Documentary Filmmaker With Passion For Social Change.</h2>
+					<div class="b-header__menu-link c-link">
+						more
+						<span>
+							<svg viewBox="0 0 21.933 17.521">
+								<path d="M21.6 9.096H.336a.336.336 0 0 1 0-.672H21.6a.336.336 0 1 1 0 .672z" data-name="Path 47"/>
+								<path d="M13.171 17.517a.336.336 0 0 1-.238-.573l8.188-8.188L12.937.573a.336.336 0 0 1 .475-.475l8.425 8.419a.337.337 0 0 1 0 .476l-8.429 8.424a.333.333 0 0 1-.237.1z" data-name="Path 48"/>
+							</svg>
+						</span>
+					</div>
+				</nuxt-link>
 			</div>
 		</div>
-		
 	</header>
 </template>
 
@@ -87,7 +97,20 @@ export default {
 		bodyOverflow(){
 			document.body.classList.toggle('fixed')
 		}
-	}
+	},
+	watch: {
+    '$route' () {
+			let menu = document.querySelector('.b-header__menu'),
+					openTrigger = document.querySelector('.b-header__trigger-icon--open'),
+					closeTrigger = document.querySelector('.b-header__trigger-icon--close');
+			menu.classList.remove('active')
+			openTrigger.classList.add('active')
+			closeTrigger.classList.remove('active')
+			if(openTrigger.classList.contains('active')){
+				this.menuOpened = false
+			}
+    }
+  }
 }
 </script>
 
@@ -155,16 +178,6 @@ export default {
 				}
 			}
 		}
-		& h2 {
-			position: relative;
-			@include font-size(40, 40);
-			@include line-height(43, 43);
-			letter-spacing: 0.05em;
-			margin-bottom: 4.5rem;
-			@include breakpoint(overPhone){
-				display: none;
-			}
-		}
 		&__menu {
 			position: fixed;
 			top: 9.7rem;
@@ -183,39 +196,35 @@ export default {
 			&.active {
 				display: block;
 			}
+			&-title {
+				@include breakpoint(overPhone){
+					display: none;
+				}
+				& h2 {
+					position: relative;
+					@include font-size(40, 40);
+					@include line-height(40, 43);
+					letter-spacing: 0;
+					margin-bottom: 3.5rem;
+				}
+			}
 			&-nav {
+				position: relative;
 				@include font-size(16, 16);
 				letter-spacing: 0.05em;
 				padding: 3.4rem 0 3.6rem;
-				margin-bottom: 4.4rem;
-				border-bottom: 2px solid rgba(219, 219, 219, 0.7);
+				margin-bottom: 4.6rem;
 				@include breakpoint(overPhone){
 					border-bottom: 0;
 					padding: 0;
 					margin: 0;
 				}
 				&::before {
-					content: '';
-					display: block;
-					position: absolute;
-					bottom: -0.8rem;
-					left: 0;
-					width: 7.2rem;
-					height: 1.6rem;
-					background-image: linear-gradient(to right, $color-white, rgba(255, 255, 255, 0));
 					@include breakpoint(overPhone){
 						display: none;
 					}
 				}
 				&::after {
-					content: '';
-					display: block;
-					position: absolute;
-					bottom: -0.8rem;
-					right: 0;
-					width: 7.2rem;
-					height: 1.6rem;
-					background-image: linear-gradient(to left, $color-white, rgba(255, 255, 255, 0));
 					@include breakpoint(overPhone){
 						display: none;
 					}
@@ -239,7 +248,19 @@ export default {
 							}
 						}
 						&.active {
-							text-decoration: underline;
+							& span {
+								position: relative;
+								&::after {
+									content: "";
+									display: block;
+									width: 100%;
+									height: 0.2rem;
+									background: $color-red;
+									position: absolute;
+									bottom: 0;
+									left: 0;
+								}
+							}
 						}
 					}
 				}
