@@ -67,7 +67,11 @@ module.exports = {
         '/news/1',
         '/news/2',
         '/news/3',
-        '/news/4'
+        '/news/4',
+        '/films/1',
+        '/films/2',
+        '/films/3',
+        '/films/4'
       ]
     }
   }
