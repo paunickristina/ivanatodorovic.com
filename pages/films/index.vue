@@ -24,28 +24,28 @@ export default {
 				{
 					id: "1",
 					title: "When I Was a Boy, I Was a Girl",
-					imgSrc: "/films/films-0.jpg",
+					imgSrc: "/films/films-1.jpg",
 					date: "January 12",
 					year: "2018"
 				},
 				{
 					id: "2",
 					title: "A Harlem Mother",
-					imgSrc: "/films/films-1.jpg",
+					imgSrc: "/films/films-2.jpg",
 					date: "January 12",
 					year: "2018"
 				},
 				{
 					id: "3",
 					title: "Everyday Life of Roma Children from Block 71",
-					imgSrc: "/films/films-2.jpg",
+					imgSrc: "/films/films-3.jpg",
 					date: "January 12",
 					year: "2018"
 				},
 				{
 					id: "4",
 					title: "Rapresent",
-					imgSrc: "/films/films-3.jpg",
+					imgSrc: "/films/films-4.jpg",
 					date: "January 12",
 					year: "2018"
 				}
@@ -58,22 +58,23 @@ export default {
 <style scoped lang="scss">
 @import '~assets/scss/base/_base.scss';
 .p-films {
-	padding-top: 11.6rem;
+	padding-top: 10.7rem;
 	@include breakpoint(overPhone){
-		padding-top: 17.4rem;
+		padding-top: 15.7rem;
 	}
 	&__desc {
-		@include font-size(16, 16);
+		@include font-size(22, 30);
 		letter-spacing: 0.05em;
 		font-style: italic;
+		color: $color-red;
 		text-transform: capitalize;
-		margin-bottom: 6.4rem;
+		margin-bottom: 6.6rem;
 	}
 	&__item {
 		&:last-of-type {
-			margin-bottom: 12.2rem;
+			margin-bottom: 11rem;
 			@include breakpoint(overPhone){
-				margin-bottom: 25.6rem;
+				margin-bottom: 31.2rem;
 			}
 		}
 	}

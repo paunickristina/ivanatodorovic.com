@@ -51,29 +51,31 @@ export default {
 		@include font-size(16, 16);
 		@include line-height(24, 25);
 		letter-spacing: 0.05em;
-		padding-top: 11.1rem;
+		padding-top: 10.9rem;
 		margin-bottom: 12.1rem;
 		@include breakpoint(overPhone){
-			padding-top: 17rem;
+			padding-top: 16rem;
 			margin-bottom: 16.6rem;
 		}
 	}
 	& h1 {
 		@include font-size(40, 100);
 		@include line-height(43, 96);
-		letter-spacing: 0.05em;
-		width: 70%;
-		margin-bottom: 1.2rem;
+		letter-spacing: 0;
+		margin-bottom: 1.1rem;
 		@include breakpoint(overPhone){
 			width: 90%;
 			margin-bottom: 1.5rem;
 		}
 	}
 	&__desc {
+		@include font-size(22, 30);
+		color: $color-red;
 		font-style: italic;
-		margin-bottom: 6.4rem;
+		margin-bottom: 6.6rem;
 		@include breakpoint(overPhone){
-			margin-bottom: 7.2rem;
+			letter-spacing: 0.07em;
+			margin-bottom: 8.2rem;
 		}
 	}
 	&__text {
@@ -84,7 +86,7 @@ export default {
 	&__intro {
 		color: $color-gray;
 		letter-spacing: 0em;
-		margin-bottom: 1.5rem;
+		margin-bottom: 1.6rem;
 		@include breakpoint(overPhone){
 			margin-bottom: 1.6rem;
 		}
@@ -102,7 +104,7 @@ export default {
 	&__quote {
 		position: relative;
 		letter-spacing: 0em;
-		padding: 2rem 0 2rem 2.2rem;
+		padding: 2rem 0 2rem 2.1rem;
 		border-left: 2px solid rgba(219, 219, 219, 0.7);
 		@include breakpoint(overPhone){
 			padding: 3.1rem 0 3.1rem 3.9rem;

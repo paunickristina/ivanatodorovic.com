@@ -1,10 +1,10 @@
 <template>
 	<section class="b-bio l">
-		<div class="b-bio__wrapper">
+		<nuxt-link to="/bio" tag="div" class="b-bio__wrapper">
 			<p class="b-bio__desc">Bio</p>
 			<h1>Documentary Filmmaker With Passion For Social Change.</h1>
 			<p class="b-bio__intro">Ivana Todorovic is a filmmaker and lecturer from Belgrade, Serbia. For her BA Thesis in Ethnology and Anthropology at University of Belgrade, she made her first short documentary film. After a one month course at Ateliers Varan in Belgrade, she went on to get a Graduate Certificate in Documentary Media studies in New York City. She later received an MA in Fiction Film at The Faculty of Dramatic Arts in Belgrade.</p>
-			<nuxt-link to="/bio" tag="div" class="b-bio__link">
+			<div class="b-bio__link">
 				<div class="c-link">
 					more
 					<span>
@@ -14,8 +14,8 @@
 						</svg>
 					</span>
 				</div>
-			</nuxt-link>
-		</div>
+			</div>
+		</nuxt-link>
 	</section>
 </template>
 
@@ -38,6 +38,13 @@ export default {
 			width: 70%;
 			padding-bottom: 0;
 			margin-bottom: 32.5rem;
+			cursor: pointer;
+		}
+		&:hover .c-link span {
+			@include breakpoint(overPhone){
+				-webkit-transform: translateX(1rem);
+				transform: translateX(1rem);
+			}
 		}
 	}
 	&__desc {
@@ -76,12 +83,6 @@ export default {
 		@include breakpoint(overPhone){
 			display: inline-block;
 			cursor: pointer;
-		}
-		&:hover .c-link span {
-			@include breakpoint(overPhone){
-				-webkit-transform: translateX(1rem);
-				transform: translateX(1rem);
-			}
 		}
 	}
 }

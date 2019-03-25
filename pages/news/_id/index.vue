@@ -8,24 +8,16 @@
 			<div class="p-news__item" v-for="(item, index) in inactiveNews" :key="index">
 				<NewsItem :data="item" />
 			</div>
-			<!-- <div class="p-news__item" v-for="(item, index) in activeNews" :key="index">
-				<ArticleItem :data="item" />
-			</div>
-			<div class="p-news__item" v-for="(item, index) in inactiveNews" :key="index">
-				<ArticleItem :data="item" />
-			</div> -->
 		</section>
 		<LecturerBlock />
 	</main>
 </template>
 
 <script>
-import ArticleItem from "~/components/News/ArticleItem.vue"
 import NewsItem from "~/components/News/NewsItem.vue"
 import LecturerBlock from "~/components/Lecturer/Block.vue"
 export default {
 	components: {
-    ArticleItem,
     NewsItem,
 		LecturerBlock
   },
@@ -173,7 +165,7 @@ export default {
 		&:last-of-type {
 			margin-bottom: 12.2rem;
 			@include breakpoint(overPhone){
-				margin-bottom: 25.6rem;
+				margin-bottom: 23.2rem;
 			}
 		}
 	}
