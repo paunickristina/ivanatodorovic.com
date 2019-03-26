@@ -10,6 +10,13 @@
 					<h1>{{ data.title }}</h1>
 				</div>
 			</section>
+			<section v-if="data.videoSrc" class="p-films-det__video l">
+				<div class="p-films-det__video-holder">
+					<div class="p-films-det__video-wrap">
+						<iframe :src="data.videoSrc" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				</div>
+			</section>
 			<section class="p-films-det__text l">
 				<div class="p-films-det__text-wrap">
 					<h4>{{ data.introTitle }}</h4>
@@ -24,6 +31,7 @@
 				<div class="p-films-det__text-wrap p-films-det__text-wrap--syn">
 					<h4>Synopsis:</h4>
 					<p>{{ data.synopsisText}}</p>
+					<span>{{ data.synopsisFest }}</span>
 					<ul>
 						<li v-for="(item, index) in data.synopsisList" :key="index">{{ item.content }}</li>
 					</ul>
@@ -38,7 +46,7 @@
 						<li v-for="(item, index) in data.prodList" :key="index">{{ item.content.desc }}: <span>{{ item.content.name }}</span></li>
 					</ul>
 				</div>
-				<div class="p-films-det__text-wrap">
+				<div v-if="data.siteTitle" class="p-films-det__text-wrap">
 					<h4>Important website:</h4>
 					<div class="p-films-det__text-link">
 						<p>{{ data.siteTitle }}</p>
@@ -79,9 +87,9 @@ export default {
 	}
 	&__hero {
 		position: relative;
-		margin-bottom: 9.4rem;
+		margin-bottom: 10.4rem;
 		@include breakpoint(overPhone){
-			margin-bottom: 19.8rem;
+			margin-bottom: 27.8rem;
 		}
 		&-img {
 			& img {
@@ -97,17 +105,37 @@ export default {
 			left: 2rem;
 			top: 14.3rem;
 			background: $color-white;
-			height: 4.8rem;
+			width: 31.4rem;
+			padding: 1.3rem 2rem 0.5rem 0;
+			background: $color-white;
 			@include breakpoint(overPhone){
+				width: 99.8rem;
+				padding: 3.3rem 3rem 0 0;
 				left: 14.8rem;
 				top: 57rem;
 			}
-			& h1 {
-				background: $color-white;
-				padding: 1.3rem 4.4rem 0.5rem 0;
-				@include breakpoint(overPhone){
-					padding: 3.3rem 6.3rem 0 0;
-				}
+		}
+	}
+	&__video {
+		&-holder {
+			width: 33.5rem;
+			margin-bottom: 6rem;
+			@include breakpoint(overPhone){
+				width: 61.4rem;
+				margin-bottom: 7.5rem;
+			}
+		}
+		&-wrap {
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 56.27198%;
+			& iframe {
+				position:absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
 			}
 		}
 	}
@@ -123,6 +151,15 @@ export default {
 			&--syn {
 				& p {
 					margin-bottom: 2.4rem;
+				}
+				& span {
+					display: block;
+					letter-spacing: -0.02em;
+					font-weight: bold;
+					margin: 0 0 1rem 1.4rem;
+					@include breakpoint(overPhone){
+						margin: 0 0 0.5rem 5.7rem;
+					}
 				}
 			}
 			& h4 {
