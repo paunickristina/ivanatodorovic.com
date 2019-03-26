@@ -4,7 +4,7 @@
 			<p class="b-films__desc">Upcoming Films</p>
 			<h2 class="b-films__title">{{ main.title }}</h2>
 			<div class="b-films__films">
-				<div class="b-films__main">
+				<nuxt-link tag="div" :to="{ name: 'Upcoming-films-id', params: { id: main.id }}" class="b-films__main">
 					<div class="b-films__main-img">
 						<picture>
 							<source media="(min-width: 768px)" :srcset="main.imgSrcDesk">
@@ -12,8 +12,8 @@
 						</picture>
 					</div>
 					<p>{{ main.description }}</p>
-				</div>
-				<div class="b-films__sec" @click="changeSecFilm">
+				</nuxt-link>
+				<nuxt-link tag="div" :to="{ name: 'Upcoming-films-id', params: { id: sec.id }}" class="b-films__sec">
 					<div class="b-films__sec-item">
 						<div class="b-films__sec-item-img">
 							<picture>
@@ -26,8 +26,8 @@
 						</div>
 						<p>{{ sec.description }}</p>
 					</div>
-				</div>
-				<div class="b-films__sec third" @click="changeThirdFilm">
+				</nuxt-link>
+				<nuxt-link tag="div" :to="{ name: 'Upcoming-films-id', params: { id: third.id }}" class="b-films__sec third">
 					<div class="b-films__sec-item">
 						<div class="b-films__sec-item-img">
 							<picture>
@@ -40,7 +40,7 @@
 						</div>
 						<p>{{ third.description }}</p>
 					</div>
-				</div>
+				</nuxt-link>
 			</div>
 		</div>
 	</section>
@@ -51,18 +51,21 @@ export default {
 	data(){
 		return {
 			main: {
+				id: "1",
 				title: "Adems Island",
 				description: "A father living on a small river island with his dog, while trying to cope with grief after the loss of his daughter. Supported by Film Center Serbia.",
 				imgSrc: "/home-films/island.jpg",
 				imgSrcDesk: "/home-films/island-desk.jpg"
 			},
 			sec: {
+				id: "2",
 				title: "Women of the National Front",
 				description: "Women of the National Front” takes the audience through the inner and visual experience of patients undergoing various gynecological interventions in a daily hospital in Belgrade, Serbia.Through the form of a film essay the viewer is introduced to the intimate world of women, their fears, their anxieties, their loves and solidarity.",
 				imgSrc: "/home-films/women.jpg",
 				imgSrcDesk: "/home-films/women-desk.jpg"
 			},
 			third: {
+				id: "3",
 				title: "When I’m at home",
 				description: "Marija is coming home to face her uncle and childhood trauma.",
 				imgSrc: "/home-films/home.jpg",
@@ -160,6 +163,9 @@ export default {
 		}
 	&__main {
 		margin-bottom: 3.1rem;
+		@include breakpoint(overPhone){
+			cursor: pointer;
+		}
 		&-img {
 			margin-bottom: 1.1rem;
 			@include breakpoint(overPhone){
