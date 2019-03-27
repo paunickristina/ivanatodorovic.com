@@ -14,7 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ]
   },
 
@@ -71,7 +71,10 @@ module.exports = {
         '/films/1',
         '/films/2',
         '/films/3',
-        '/films/4'
+        '/films/4',
+        '/upcoming-films/1',
+        '/upcoming-films/2',
+        '/upcoming-films/3',
       ]
     }
   }

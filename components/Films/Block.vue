@@ -4,7 +4,7 @@
 			<p class="b-films__desc">Upcoming Films</p>
 			<h2 class="b-films__title">{{ main.title }}</h2>
 			<div class="b-films__films">
-				<nuxt-link tag="div" :to="{ name: 'Upcoming-films-id', params: { id: main.id }}" class="b-films__main">
+				<nuxt-link tag="div" :to="{ name: 'upcoming-films-id', params: { id: main.id }}" class="b-films__main">
 					<div class="b-films__main-img">
 						<picture>
 							<source media="(min-width: 768px)" :srcset="main.imgSrcDesk">
@@ -13,7 +13,7 @@
 					</div>
 					<p>{{ main.description }}</p>
 				</nuxt-link>
-				<nuxt-link tag="div" :to="{ name: 'Upcoming-films-id', params: { id: sec.id }}" class="b-films__sec">
+				<nuxt-link tag="div" :to="{ name: 'upcoming-films-id', params: { id: sec.id }}" class="b-films__sec">
 					<div class="b-films__sec-item">
 						<div class="b-films__sec-item-img">
 							<picture>
@@ -27,7 +27,7 @@
 						<p>{{ sec.description }}</p>
 					</div>
 				</nuxt-link>
-				<nuxt-link tag="div" :to="{ name: 'Upcoming-films-id', params: { id: third.id }}" class="b-films__sec third">
+				<nuxt-link tag="div" :to="{ name: 'upcoming-films-id', params: { id: third.id }}" class="b-films__sec third">
 					<div class="b-films__sec-item">
 						<div class="b-films__sec-item-img">
 							<picture>
