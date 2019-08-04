@@ -45,7 +45,7 @@
 						<nuxt-link tag="li" to="/films" :class="{'active': films}"><span>Films</span></nuxt-link>
 						<nuxt-link tag="li" to="/lecturer" :class="{'active': lecturer}"><span>Lecturer</span></nuxt-link>
 						<nuxt-link tag="li" to="/bio" :class="{'active': bio}"><span>Bio</span></nuxt-link>
-						<nuxt-link tag="li" to="/news/1" :class="{'active': news}"><span>News</span></nuxt-link>
+						<nuxt-link tag="li" to="/news" :class="{'active': news}"><span>News</span></nuxt-link>
 						<nuxt-link tag="li" to="/contact" :class="{'active': contact}"><span>Contact</span></nuxt-link>
 					</ul>
 				</nav>

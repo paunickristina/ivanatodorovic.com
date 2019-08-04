@@ -34,14 +34,29 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    // '@nuxtjs/axios',
+    '@nuxtjs/apollo'
   ],
-
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
+    }
+  },
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push({
+        path: '*',
+        component: resolve(__dirname, 'pages/404/index.vue')
+      });
+    }
+  },
   /*
   ** Build configuration
   */
@@ -64,17 +79,7 @@ module.exports = {
   generate: {
     routes: function(){
       return [
-        '/news/1',
-        '/news/2',
-        '/news/3',
-        '/news/4',
-        '/films/1',
-        '/films/2',
-        '/films/3',
-        '/films/4',
-        '/upcoming-films/1',
-        '/upcoming-films/2',
-        '/upcoming-films/3',
+        
       ]
     }
   }

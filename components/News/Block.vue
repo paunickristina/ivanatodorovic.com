@@ -2,7 +2,7 @@
   <section class="b-news l">
 		<p class="b-news__desc">News</p>
 		<div class="b-news__wrapper">
-			<div class="b-news__item" v-for="(item, index) in items" :key="index">
+			<div class="b-news__item" v-for="(item, index) in newses" :key="index">
 				<Item :data="item" />
 			</div>
 		</div>
@@ -10,44 +10,31 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import Item from "~/components/News/Item"
+
+const newses = gql`
+	query newses {
+		newses(orderBy: createdAt_DESC first: 4) {
+			id
+			title
+			description
+			date
+			image{
+				id
+				url
+			}
+		}
+	}
+`
 export default {
+	apollo: {
+		newses: {
+			query: newses
+		}
+	},
 	components: {
 		Item
-	},
-	data(){
-		return {
-			items: [
-				{
-					id: "1",
-					description: "News",
-					title: "First short fiction film",
-					date: "January 12",
-					year: "2018"
-				},
-				{
-					id: "2",
-					description: "Festival",
-					title: "Selection committee for German International Ethnographic film festival",
-					date: "March 03",
-					year: "2018"
-				},
-				{
-					id: "3",
-					description: "Master Class",
-					title: "Master Class at the Serbian film center",
-					date: "March 15",
-					year: "2018"
-				},
-				{
-					id: "4",
-					description: "Workshops",
-					title: "Two 7 day workshopin kulturwissenschaft an der uni Koblenc — Germany",
-					date: "March 15",
-					year: "2018"
-				}
-			]
-		}
 	}
 }
 </script>

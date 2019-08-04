@@ -3,20 +3,24 @@
 		<div class="b-news-item__wrapper c-border">
 			<h2 class="b-news-item__title">{{ data.title }}</h2>
 			<div class="b-news-item__img">
-				<img :src="data.imgSrc" alt="">
+				<img :src="data.image.url" alt="">
 			</div>
 			<div class="b-news-item__body">
 				<h2>{{ data.title }}</h2>
 				<p class="b-news-item__desc">{{ data.description }}</p>
-				<p class="b-news-item__date">{{ data.date }} — {{ data.year }}</p>
+				<p class="b-news-item__date">{{ getDate(data.date) }}</p>
 			</div>
 		</div>
 	</article>
 </template>
 
 <script>
+import { getDate } from "~/plugins/custom.js";
 export default {
-	props: ["data"]
+	props: ["data"],
+	methods: {
+		getDate
+	}
 }
 </script>
 

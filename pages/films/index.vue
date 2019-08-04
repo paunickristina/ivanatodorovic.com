@@ -2,7 +2,7 @@
 	<main id="main">
 		<section class="p-films l">
 			<p class="p-films__desc">Films</p>
-			<div class="p-films__item" v-for="(item, index) in items" :key="index">
+			<div class="p-films__item" v-for="(item, index) in films" :key="index">
 				<FilmsItem :data="item" />
 			</div>
 		</section>
@@ -11,47 +11,33 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import FilmsItem from "~/components/Films/FilmsItem.vue"
 import LecturerBlock from "~/components/Lecturer/Block.vue"
+
+const films = gql`
+	query films {
+		films(orderBy: createdAt_DESC, where: {tag: null}) {
+			id
+			title
+			date
+			image{
+				id
+				url
+			}
+		}
+	}
+`
 export default {
+	apollo: {
+		films: {
+			query: films
+		}
+	},
 	components: {
     FilmsItem,
 		LecturerBlock
-  },
-	data(){
-		return {
-			items: [
-				{
-					id: "1",
-					title: "When I Was a Boy, I Was a Girl",
-					imgSrc: "/films/films-1.jpg",
-					date: "January 12",
-					year: "2018"
-				},
-				{
-					id: "2",
-					title: "A Harlem Mother",
-					imgSrc: "/films/films-2.jpg",
-					date: "January 12",
-					year: "2018"
-				},
-				{
-					id: "3",
-					title: "Everyday Life of Roma Children from Block 71",
-					imgSrc: "/films/films-3.jpg",
-					date: "January 12",
-					year: "2018"
-				},
-				{
-					id: "4",
-					title: "Rapresent",
-					imgSrc: "/films/films-4.jpg",
-					date: "January 12",
-					year: "2018"
-				}
-			]
-		}
-	}
+  }
 }
 </script>
 

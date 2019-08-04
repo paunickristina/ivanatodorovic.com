@@ -3,7 +3,7 @@
 		<nuxt-link class="c-news__wrapper" tag="div" :to="{ name: 'news-id', params: { id: data.id }}">
 			<h2>{{ data.title }}</h2>
 			<div class="c-news__bottom">
-				<p class="c-news__date">{{ data.date}} — {{ data.year }}</p>
+				<p class="c-news__date">{{ getDate(data.date) }}</p>
 				<div class="c-news__link c-link">
 					more
 					<span>
@@ -19,8 +19,12 @@
 </template>
 
 <script>
+import { getDate } from "~/plugins/custom.js";
 export default {
-	props: ["data"]
+	props: ["data"],
+	methods: {
+		getDate
+	}
 }
 </script>
 

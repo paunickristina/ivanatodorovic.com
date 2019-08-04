@@ -4,55 +4,19 @@
 			<p class="p-films-det__desc l">Films</p>
 			<section class="p-films-det__hero l">
 				<div class="p-films-det__hero-img">
-					<img :src="data.imgSrc" alt="">
+					<img :src="data.hero.url" alt="">
 				</div>
 				<div class="p-films-det__hero-text">
 					<h1>{{ data.title }}</h1>
 				</div>
 			</section>
-			<section v-if="data.videoSrc" class="p-films-det__video l">
+			<section v-if="data.video.html" class="p-films-det__video l">
 				<div class="p-films-det__video-holder">
-					<div class="p-films-det__video-wrap">
-						<iframe :src="data.videoSrc" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					</div>
+					<div v-html="data.video.html" class="p-films-det__video-wrap"></div>
 				</div>
 			</section>
-			<section class="p-films-det__text l">
-				<div class="p-films-det__text-wrap">
-					<h4>{{ data.introTitle }}</h4>
-					<p>{{ data.introText }}</p>
-				</div>
-				<div class="p-films-det__text-wrap">
-					<h4>Awards:</h4>
-					<ul>
-						<li v-for="(item, index) in data.awardsList" :key="index">{{ item.content }}</li>
-					</ul>
-				</div>
-				<div class="p-films-det__text-wrap p-films-det__text-wrap--syn">
-					<h4>Synopsis:</h4>
-					<p>{{ data.synopsisText}}</p>
-					<span>{{ data.synopsisFest }}</span>
-					<ul>
-						<li v-for="(item, index) in data.synopsisList" :key="index">{{ item.content }}</li>
-					</ul>
-				</div>
-				<div class="p-films-det__text-wrap">
-					<h4>{{ data.descTitle }}</h4>
-					<p>{{ data.descText }}</p>
-				</div>
-				<div class="p-films-det__text-wrap">
-					<h4>Production Notes:</h4>
-					<ul class="p-films-det__text-note">
-						<li v-for="(item, index) in data.prodList" :key="index">{{ item.content.desc }}: <span>{{ item.content.name }}</span></li>
-					</ul>
-				</div>
-				<div v-if="data.siteTitle" class="p-films-det__text-wrap">
-					<h4>Important website:</h4>
-					<div class="p-films-det__text-link">
-						<p>{{ data.siteTitle }}</p>
-						<a :href="data.siteUrl" target="_blank">{{ data.siteUrl }}</a>
-					</div>
-				</div>
+			<section class="p-films-det__content l">
+				<div v-html="data.content.html"></div>
 			</section>
 		</div>
 	</main>
@@ -87,11 +51,16 @@ export default {
 	}
 	&__hero {
 		position: relative;
-		margin-bottom: 10.4rem;
+		margin-bottom: 9.6rem;
 		@include breakpoint(overPhone){
 			margin-bottom: 27.8rem;
 		}
 		&-img {
+			height: 19.2rem;
+			overflow: hidden;
+			@include breakpoint(overPhone){
+				height: 65rem;
+			}
 			& img {
 				width: 100%;
 			}
@@ -116,6 +85,92 @@ export default {
 			}
 		}
 	}
+	&__content {
+		@include breakpoint(overPhone){
+			padding: 0 63rem 0 15rem;
+		}
+		& /deep/ h3 {
+			letter-spacing: 0.01em;
+			font-weight: bold;
+			margin-bottom: 2.4rem;
+			@include breakpoint(overPhone){
+				text-transform: uppercase;
+			}
+		}
+		& /deep/ h4 {
+			letter-spacing: 0.01em;
+			font-weight: bold;
+			margin-bottom: 2.4rem;
+		}
+		& /deep/ h5 {
+			letter-spacing: -0.02em;
+			font-weight: bold;
+			margin: 0 0 2rem 1.4rem;
+			@include breakpoint(overPhone){
+				margin: -5rem 0 0.5rem 5.7rem;
+			}
+		}
+		& /deep/ p {
+			letter-spacing: 0em;
+			color: $color-gray;
+			margin-bottom: 7.6rem;
+			& strong {
+				font-weight: bold;
+				color: $color-black;
+			}
+			& a {
+				color: $color-link-blue;
+			}
+		}
+		& /deep/ ul {
+			color: $color-gray;
+			margin-bottom: 7.6rem;
+			@include breakpoint(overPhone){
+				margin-bottom: 6.7rem;
+			}
+			& li {
+				position: relative;
+				letter-spacing: 0em;
+				list-style: none;
+				padding-left: 1.4rem;
+				margin-bottom: 1.7rem;
+				@include breakpoint(overPhone){
+					padding-left: 5.7rem;
+					margin-bottom: 0.5rem;
+				}
+				&::before {
+					content: '';
+					display: block;
+					width: 0.42rem;
+					height: 0.42rem;
+					border-radius: 50%;
+					background: $color-black;
+					position: absolute;
+					top: 0.9rem;
+					left: -0.1rem;
+					@include breakpoint(overPhone){
+						left: 4.1rem;
+					}
+				}
+			}
+		}
+		& /deep/ ol {
+			list-style: none;
+			color: $color-gray;
+			letter-spacing: 0em;
+			margin-bottom: 7.9rem;
+			@include breakpoint(overPhone){
+				margin-bottom: 7.1rem;
+			}
+			& strong {
+				font-weight: 400;
+				color: $color-black;
+			}
+			& a {
+				color: $color-link-blue;
+			}
+		}
+	}
 	&__video {
 		&-holder {
 			width: 33.5rem;
@@ -130,96 +185,15 @@ export default {
 			width: 100%;
 			height: 0;
 			padding-bottom: 56.27198%;
-			& iframe {
-				position:absolute;
-				top:0;
-				left:0;
-				width:100%;
-				height:100%;
+			& /deep/ iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
 			}
-		}
-	}
-	&__text {
-		@include breakpoint(overPhone){
-			padding-right: 63rem;
-		}
-		&-wrap {
-			margin-bottom: 7.7rem;
-			@include breakpoint(overPhone){
-				margin-bottom: 7rem;
-			}
-			&--syn {
-				& p {
-					margin-bottom: 2.4rem;
-				}
-				& span {
-					display: block;
-					letter-spacing: -0.02em;
-					font-weight: bold;
-					margin: 0 0 1rem 1.4rem;
-					@include breakpoint(overPhone){
-						margin: 0 0 0.5rem 5.7rem;
-					}
-				}
-			}
-			& h4 {
-				letter-spacing: 0.01em;
-				font-weight: bold;
-				margin-bottom: 2.4rem;
-			}
-			& p {
-				letter-spacing: 0em;
-				color: $color-gray;
-			}
-			& ul {
-				color: $color-gray;
-				& li {
-					position: relative;
-					letter-spacing: 0em;
-					list-style: none;
-					padding-left: 1.4rem;
-					margin-bottom: 1.7rem;
-					@include breakpoint(overPhone){
-						padding-left: 5.7rem;
-						margin-bottom: 0.5rem;
-					}
-					&::before {
-						content: '';
-						display: block;
-						width: 0.42rem;
-						height: 0.42rem;
-						border-radius: 50%;
-						background: $color-black;
-						position: absolute;
-						top: 0.9rem;
-						left: -0.1rem;
-						@include breakpoint(overPhone){
-							left: 4.1rem;
-						}
-					}
-				}
-			}
-			& .p-films-det__text-note {
-				& li {
-					padding-left: 0;
-					margin-bottom: 0;
-					&::before {
-						display: none;
-					}
-				}
-			}
-		}
-		&-note {
-			& span {
-				color: $color-black;
-				letter-spacing: -0.03em;
-				font-weight: bold;
-			}
-		}
-		&-link {
-			& a {
-				letter-spacing: 0em;
-				color: $color-link-blue;
+			& /deep/ p {
+				display: none;
 			}
 		}
 	}
