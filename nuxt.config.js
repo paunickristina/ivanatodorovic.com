@@ -79,7 +79,18 @@ module.exports = {
   generate: {
     routes: function(){
       return [
-        
+        '/news/cjyrhybqkmhcx0910uytn5uup',
+        '/news/cjyrhwekzmc4p0941ca1jtnnz',
+        '/news/cjyrhutermbxm0941wvsn1j16',
+        '/news/cjyrhtawpmgp10910gp781xkt',
+        '/films/cjyrjeddmfaz00d53kdenc72r',
+        '/films/cjyrjbypimkge09416jf1jf4k',
+        '/films/cjyrj5q0lmjjd0941b11baf2r',
+        '/films/cjyriehvlmelj0941u916rx55',
+        '/films/cjyvp8n944g640d53g6ugmtke',
+        '/films/cjyvp4qoh4fj40d53z9ka8jw4',
+        '/films/cjyvopdfk6wh40910jnawmfum',
+        '/news'
       ]
     }
   }
