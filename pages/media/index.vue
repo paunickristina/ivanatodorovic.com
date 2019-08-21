@@ -3,7 +3,6 @@
 		<section class="p-media l"  v-if="!$apollo.queries.films.loading && !$apollo.queries.newses.loading">
 			<p class="p-media__desc">All films and news</p>
 			<div class="p-media__item" v-for="(item, index) in allMedia" :key="index">
-				{{ item.createdAt}}
 				<FilmsItem :data="item" v-if="item.__typename == 'Film'" />
 				<NewsItem :data="item" v-else />
 			</div>
