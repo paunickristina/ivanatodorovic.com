@@ -90,7 +90,8 @@ module.exports = {
         '/films/cjyvp8n944g640d53g6ugmtke',
         '/films/cjyvp4qoh4fj40d53z9ka8jw4',
         '/films/cjyvopdfk6wh40910jnawmfum',
-        '/news'
+        '/news',
+        '/media'
       ]
     }
   }
